@@ -25,14 +25,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/tinkercloudxyz/flexcompute">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">FlexCompute Code Sample</h3>
 
   <p align="center">
-    project_description
+    Code samples across a number of infrastructure-as-code platforms to help jump starting interacting with FlexCompute via code
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
