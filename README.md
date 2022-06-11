@@ -38,8 +38,6 @@
     <a href="https://github.com/tinkercloudxyz/flexcompute"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/tinkercloudxyz/flexcompute">View Demo</a>
-    ·
     <a href="https://github.com/tinkercloudxyz/flexcompute/issues">Report Bug</a>
     ·
     <a href="https://github.com/tinkercloudxyz/flexcompute/issues">Request Feature</a>
@@ -81,22 +79,16 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This jump starter provides a starting point for range of scenarios on VMware Cloud Director on the `Datacom Cloud FlexCompute` platform. These are available for a number of supported infrastructure-as-code platforms.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-### Built With
+## Available Code Samples
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Terraform](https://github.com/tinkercloudxyz/flexcompute/tree/main/terraform)
+* [PowerShell](https://github.com/tinkercloudxyz/flexcompute/tree/main/powershell)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
