@@ -18,6 +18,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Terraform][terraform-shield]][terraform-url]
+[![PowerShell][powershell-shield]][powershell-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -219,6 +220,9 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 [terraform-shield]: https://img.shields.io/badge/code-Terraform-orange?logo=terraform
 [terraform-url]: https://registry.terraform.io/providers/vmware/vcd/latest/docs
+[powershell-shield]: https://img.shields.io/badge/code-Powershell-blue?logo=powershell
+[powershell-url]: https://developer.vmware.com/docs/powercli/latest/products/vmwareclouddirector/
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
