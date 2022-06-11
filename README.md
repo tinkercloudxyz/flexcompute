@@ -19,7 +19,7 @@
 -->
 [![Terraform][terraform-shield]][terraform-url]
 [![PowerShell][powershell-shield]][powershell-url]
-![Cooper][cooper-shield]
+
 
 
 
@@ -217,7 +217,6 @@ Project Link: [https://github.com/tinkercloudxyz/flexcompute](https://github.com
 [terraform-url]: https://registry.terraform.io/providers/vmware/vcd/latest/docs
 [powershell-shield]: https://img.shields.io/badge/code-Powershell-blue?logo=powershell
 [powershell-url]: https://developer.vmware.com/docs/powercli/latest/products/vmwareclouddirector/
-[cooper-shield]: https://img.shields.io/badge/person-Cooper-green?logo=gunicorn
 
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/tinkercloudxyz/flexcompute/graphs/contributors
