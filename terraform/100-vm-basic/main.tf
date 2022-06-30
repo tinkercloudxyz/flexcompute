@@ -20,7 +20,7 @@ provider "vcd" {
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
   name          = var.vm_name
-  computer_name = var.vm_name
+  computer_name = substr(var.vm_name, 0, 15)
   power_on      = "true"
   memory        = var.vm_memory
   cpus          = var.vm_cpus
