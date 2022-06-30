@@ -4,7 +4,7 @@ Name: 100-vm-basic - main
 
 Description:  Setup of a basic, stand alone virtual machine in Datacom Cloud FlexCompute
 
-Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
+Dependencies: Existing Org, VDC, Edge Gateway, Network
 -------------------------------------------------------------------------------------------
 */
 
@@ -41,4 +41,5 @@ resource "vcd_vm_internal_disk" "osdisk" {
   bus_number = 0
   unit_number = 1
   allow_vm_reboot = true
+  depends_on      = ["vcd_vm.vm"]
 }
