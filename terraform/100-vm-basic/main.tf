@@ -35,7 +35,8 @@ resource "vcd_vm" "vm" {
 }
 
 resource "vcd_vm_internal_disk" "osdisk" {
-  vm_name = var.vm_name
+  vapp_name = vcd_vm.vm.vapp_name
+  vm_name = vcd_vm.vm.name
   bus_type = var.vm_os_disk_bus_type
   size_in_mb = var.vm_os_disk_size
   bus_number = 0
