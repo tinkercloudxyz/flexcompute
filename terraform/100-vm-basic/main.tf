@@ -30,14 +30,14 @@ resource "vcd_vm" "vm" {
     ip_allocation_mode = var.vm_ip_allocation_mode
     ip                 = var.vm_ip
   }
-  os_type          = "ubuntu64Guest"
-  hardware_version = "vmx-14"
+  os_type          = var.vm_os_type
+  hardware_version = var.vm_hardware_version
 }
 
 resource "vcd_vm_internal_disk" "osdisk" {
   vm_name = var.vm_name
-  bus_type = "paravirtual"
-  size_in_mb = 40960
+  bus_type = var.vm_os_disk_bus_type
+  size_in_mb = var.vm_os_disk_size
   bus_number = 0
   unit_number = 1
   allow_vm_reboot = true
