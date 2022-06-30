@@ -12,7 +12,6 @@
 1. [Requirements](#Requirements)
 1. [Configuration](#Configuration)
 1. [Build](#Build)
-1. [Troubleshoot](#Troubleshoot)
 1. [Credits](#Credits)
 
 ## Introduction
