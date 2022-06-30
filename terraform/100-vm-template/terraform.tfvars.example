@@ -1,0 +1,29 @@
+/* 
+-------------------------------------------------------------------------------------------
+Name: 100-vm-template - main
+
+Description:  Example of a basic, stand alone virtual machine in Datacom Cloud FlexCompute
+              based on a vApp template
+
+Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
+-------------------------------------------------------------------------------------------
+*/
+
+# VMware Cloud Director details and credentials 
+
+vcd_apiurl = "https://vcloud-hlz.datacomcloud.co.nz/api"
+vcd_user = "tinkeradmin"
+vcd_pass = "***********"
+vcd_org = "tinkorg"    
+vcd_vdc = "tinkvdc"
+
+# Virtual Machine variables
+
+vm_name = "tinkvm1"
+template_catalog = "tinker-catalog"
+vm_template = "tink-ubuntu-20"
+vm_memory = "2048"
+vm_cpus = "1"
+vm_network_type = "org"
+vm_network_name = "tinknet1"
+vm_ip_allocation_mode = "POOL"
