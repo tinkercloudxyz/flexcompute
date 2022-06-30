@@ -56,3 +56,19 @@ variable "vm_ip" {
   description = "Should be empty string for `POOL`, `DHCP` and NONE. For `MANUAL`, Value must be valid IP address from a subnet defined in `static pool` for network"
   default = ""
 }
+variable "vm_os_type" {
+  description = "Operating System type. Possible values can be found in the terraform provider documentation"
+  default = "ubuntu64Guest"
+}
+variable "vm_hardware_version" {
+  description = "Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.)"
+  default = "vmx-14"
+}
+variable "vm_os_disk_bus_type" {
+  description = "The type of disk controller. Possible values: `ide`, `parallel`( LSI Logic Parallel SCSI), `sas`(LSI Logic SAS (SCSI)), `paravirtual`(Paravirtual (SCSI)), `sata`, `nvme`"
+  default = "paravirtual"
+}
+variable "vm_os_disk_size" {
+  description = "The size of the disk in MB"
+  default = 40960
+}
