@@ -2,7 +2,7 @@
 
 ![Last Commit](https://img.shields.io/github/last-commit/tinkercloudxyz/flexcompute?logo=github)
 [![Changelog](https://img.shields.io/badge/changelog-read-blue?logo=github)](CHANGELOG.md)
-
+![Release](https://img.shields.io/github/v/release/tinkercloudxyz/flexcompute?include_prereleases)
 [![Terraform][terraform-shield]][terraform-url]
 [![PowerShell][powershell-shield]][powershell-url]
 
