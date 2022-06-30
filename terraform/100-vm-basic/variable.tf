@@ -62,7 +62,7 @@ variable "vm_os_type" {
 }
 variable "vm_hardware_version" {
   description = "Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.)"
-  default = "vmx-14"
+  default = "vmx-13"
 }
 variable "vm_os_disk_bus_type" {
   description = "The type of disk controller. Possible values: `ide`, `parallel`( LSI Logic Parallel SCSI), `sas`(LSI Logic SAS (SCSI)), `paravirtual`(Paravirtual (SCSI)), `sata`, `nvme`"
