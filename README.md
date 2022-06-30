@@ -2,7 +2,8 @@
 
 ![Last Commit](https://img.shields.io/github/last-commit/tinkercloudxyz/flexcompute?logo=github)
 [![Changelog](https://img.shields.io/badge/changelog-read-blue?logo=github)](CHANGELOG.md)
-![Release](https://img.shields.io/github/v/release/tinkercloudxyz/flexcompute?include_prereleases)
+[![Release](https://img.shields.io/github/v/release/tinkercloudxyz/flexcompute?include_prereleases)][github-latest-releases]
+
 [![Terraform][terraform-shield]][terraform-url]
 [![PowerShell][powershell-shield]][powershell-url]
 
@@ -24,6 +25,7 @@ The following code samples are available:
 
 * **Building Blocks** *(Level 100)*
   * VM - Basic
+  * VM - Basic from Template
 * **Simple Stack** *(Level 200)*
 * **Advanced Stack** *(Level 300)*
 
@@ -151,3 +153,4 @@ Using the variable file created by cloning the example, execute the code sample 
 [powershell-url]: https://developer.vmware.com/docs/powercli/latest/products/vmwareclouddirector/
 [powercli-guide]: https://developer.vmware.com/powercli/installation-guide
 [vcd-api-url]: https://developer.vmware.com/apis/vmware-cloud-director/latest/
+[github-latest-releases]: https://github.com/tinkercloudxyz/flexcompute/releases/latest/
