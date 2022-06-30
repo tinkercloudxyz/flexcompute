@@ -29,12 +29,6 @@ variable "vcd_vdc" {
 variable "vm_name" {
   description = "VM name"
 }
-variable "template_catalog" {
-  description = "Catalog name in which to find the given vApp Template"
-}
-variable "vm_template" {
-  description = "Name of the vApp Template to use"
-}
 variable "vm_memory" {
   description = "Amount of RAM (in MB) to allocate to the VM"
   default = 2048
