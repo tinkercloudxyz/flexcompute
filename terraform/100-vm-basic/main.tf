@@ -20,8 +20,6 @@ provider "vcd" {
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
   name          = var.vm_name
-  catalog_name  = var.template_catalog
-  template_name = var.vm_template
   power_on      = "true"
   memory        = var.vm_memory
   cpus          = var.vm_cpus
@@ -32,4 +30,15 @@ resource "vcd_vm" "vm" {
     ip_allocation_mode = var.vm_ip_allocation_mode
     ip                 = var.vm_ip
   }
+  os_type          = "ubuntu64Guest"
+  hardware_version = "vmx-14"
+}
+
+resource "vcd_vm_internal_disk" "osdisk" {
+  vm_name = var.vm_name
+  bus_type = "paravirtual"
+  size_in_mb = 40960
+  bus_number = 0
+  unit_number = 1
+  allow_vm_reboot = true
 }
