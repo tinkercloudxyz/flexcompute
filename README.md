@@ -1,225 +1,154 @@
-<div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+# FlexCompute by Datacom Cloud - Code Samples
 
+![Last Commit](https://img.shields.io/github/last-commit/tinkercloudxyz/flexcompute?logo=github)
+[![Changelog](https://img.shields.io/badge/changelog-read-blue?logo=github)](CHANGELOG.md)
 
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Terraform][terraform-shield]][terraform-url]
 [![PowerShell][powershell-shield]][powershell-url]
 
+## Table of Contents
 
+1. [Introduction](#Introduction)
+1. [Requirements](#Requirements)
+1. [Configuration](#Configuration)
+1. [Build](#Build)
+1. [Troubleshoot](#Troubleshoot)
+1. [Credits](#Credits)
+
+## Introduction
+
+This repository provides infrastructure-as-code examples for automating the provisioning and configuration of resources on FlexCompute by Datacom Cloud using configuration tools ([HashiCorp Terraform][terraform-url], [VMware PowerCLI][powershell-url]) interacting with the [VMware Cloud Director API][vcd-api-url].
+
+The following code samples are available:
+
+### HashiCorp Terraform
+
+* **Building Blocks** *(Level 100)*
+  * VM - Basic
+* **Simple Stack** *(Level 200)*
+* **Advanced Stack** *(Level 300)*
 
+### VMware PowerCLI
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/tinkercloudxyz/flexcompute">
-    <img src="images/datacom-logo.svg" alt="Logo" width="160" height="160">
-  </a>
+* **Building Blocks** *(Level 100)*
+* **Stack** *(Level 200)*
+* **Advanced Stack** *(Level 300)*
 
-<h3 align="center">FlexCompute Code Jumpstarter</h3>
+> **Note**
+>
+> * **Building blocks** focus on the provisioning and configuration of a single resource
+>
+> * **Simple Stack** combines builing blocks e.g. VM + network + firewall rule
+>
+> * **Advanced Stack** combines simple stacks to provide a whole solution e.g. 3 tier application
 
-  <p align="center">
-    Sets of code samples helping jump start deploying and managing resources on VMware Cloud Director
-    <br />
-    <a href="https://github.com/tinkercloudxyz/flexcompute"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/tinkercloudxyz/flexcompute/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/tinkercloudxyz/flexcompute/issues">Request Feature</a>
-  </p>
-</div>
+## Requirements
 
+**HashiCorp Terraform**:
 
+* Terraform 1.2.1+
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+    > **Note**
+    >
+    > Available as a [local installation][terraform-download] or in [Terraform Cloud][terraform-cloud]
 
+**VMware PowerCLI**:
 
+* PowerShell 5.1+
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+  > **Note**
+  >
+  > Follow the [installation guide][powercli-guide] to configure PowerCLI
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+**Platform**:
 
-This jump starter provides a starting point for range of scenarios on VMware Cloud Director on the `Datacom Cloud FlexCompute` platform. These are available for a number of supported infrastructure-as-code platforms.
+* VMware Cloud Director 10.2+
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Configuration
 
+### Step 1 - Download the Release
 
+Download the [**latest**](https://github.com/tinkercloudxyz/flexcompute/releases) release.
 
-## Available Code Samples
+You may also clone `main` for the latest prerelease updates.
 
-* [Terraform](https://github.com/tinkercloudxyz/flexcompute/tree/main/terraform)
-* [PowerShell](https://github.com/tinkercloudxyz/flexcompute/tree/main/powershell)
+**Example**:
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+```console
+git clone https://github.com/tinkercloudxyz/flexcompute.git
+```
 
+The directory structure of the repository.
 
+```console
+├── LICENSE
+├── NOTICE
+├── README.md
+├── terraform
+│   ├── 100-<buidling block>
+│   │   ├──main.tf
+│   │   ├──variable.tf
+│   │   ├──version.tf
+│   │   └──terraform.tfvars.example
+│   ├── 200-<simple stack>
+│   │   ├──main.tf
+│   │   ├──variable.tf
+│   │   ├──version.tf
+│   │   └──terraform.tfvars.example
+│   └── 300-<advanced stack>
+│       ├──main.tf
+│       ├──variable.tf
+│       ├──version.tf
+│       └──terraform.tfvars.example
+└── powercli
+    ├── 100-<buidling block>
+    │   ├──main.tf
+    │   ├──variable.tf
+    │   ├──version.tf
+    │   └──terraform.tfvars.example
+    ├── 200-<simple stack>
+    │   ├──main.tf
+    │   ├──variable.tf
+    │   ├──version.tf
+    │   └──terraform.tfvars.example
+    └── 300-<advanced stack>
+        ├──main.tf
+        ├──variable.tf
+        ├──version.tf
+        └──terraform.tfvars.example
 
-<!-- GETTING STARTED -->
-## Getting Started
+```
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+> **Warning**
+>
+> When forking the project for upstream contribution, please be mindful not to make changes that may expose your sensitive information, such as passwords, keys, certificates, etc.
 
-### Prerequisites
+### Step 2 - Configure Account Privileges in VMware Cloud Director on FlexCompute
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Create a user account or service token with required level of priviledges for provisioning and configuring resources on VMware Cloud Director.
 
-### Installation
+### Step 3 - Configure the Variables
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/tinkercloudxyz/flexcompute.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+#### Copy the Example Variables
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Copy the example variable file provided for each code sample and populate with relevant updated values for the variables
 
+## Build
 
+### Build with Variables Files
 
-<!-- USAGE EXAMPLES -->
-## Usage
+Using the variable file created by cloning the example, execute the code sample using the appropriate intepreter e.g. Terraform, PowerCLI
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Credits
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/tinkercloudxyz/flexcompute/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/tinkercloudxyz/flexcompute](https://github.com/tinkercloudxyz/flexcompute)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[//]: Links
 
 [terraform-shield]: https://img.shields.io/badge/code-Terraform-orange?logo=terraform
 [terraform-url]: https://registry.terraform.io/providers/vmware/vcd/latest/docs
+[terraform]: https://www.terraform.io/
+[terraform-download]: https://www.terraform.io/downloads
+[terraform-cloud]: https://cloud.hashicorp.com/products/terraform
 [powershell-shield]: https://img.shields.io/badge/code-Powershell-blue?logo=powershell
 [powershell-url]: https://developer.vmware.com/docs/powercli/latest/products/vmwareclouddirector/
-
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/tinkercloudxyz/flexcompute/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/tinkercloudxyz/flexcompute/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/tinkercloudxyz/flexcompute/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/tinkercloudxyz/flexcompute/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/tinkercloudxyz/flexcompute/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[powercli-guide]: https://developer.vmware.com/powercli/installation-guide
+[vcd-api-url]: https://developer.vmware.com/apis/vmware-cloud-director/latest/
