@@ -41,5 +41,5 @@ resource "vcd_vm_internal_disk" "osdisk" {
   bus_number = 0
   unit_number = 1
   allow_vm_reboot = true
-  depends_on      = ["vcd_vm.vm"]
+  depends_on      = [vcd_vm.vm]
 }
