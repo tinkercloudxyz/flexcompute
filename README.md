@@ -27,6 +27,7 @@ The following code samples are available:
   * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-vm-basic)
   * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-vm-template)
   * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-net-routed)
+  * [Firewall - Rule - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-net-fw-rule-ipaddrs)
 * **Simple Stack** *(Level 200)*
 * **Advanced Stack** *(Level 300)*
 
