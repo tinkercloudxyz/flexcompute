@@ -21,7 +21,7 @@ provider "vcd" {
 data "vcd_edgegateway" "edgegw" {
   org  = var.vcd_org
   vdc  = var.vcd_vdc
-  name = var.network_edge_gateway
+  name = var.network_edge_gateway_name
 }
 
 # Routed network on Edge Gateway

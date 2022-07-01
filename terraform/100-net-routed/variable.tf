@@ -27,7 +27,7 @@ variable "vcd_vdc" {
 }
 
 #Edge Gateway
-variable "network_edge_gateway" {
+variable "network_edge_gateway_name" {
   description = "Name for the edge gateway to which network is connected"
 }
 
@@ -43,9 +43,7 @@ variable "network_prefix_length" {
 }
 variable "network_static_ippool_start" {
   description = "The first address in the IP Range for Static IP Pool"
-  default = ""
 }
 variable "network_static_ippool_end" {
   description = "The final address in the IP Range for Static IP Pool"
-  default = ""
 }

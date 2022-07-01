@@ -19,7 +19,7 @@ vcd_vdc = "tinkvdc"
 
 # Edge Gateway
 
-network_edge_gateway = "tinkeredge1"
+network_edge_gateway_name = "tinkeredge1"
 
 # Routed Network
 
