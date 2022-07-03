@@ -76,6 +76,7 @@ variable "vm_remote_access_protocol" {
 # Outgoing Internet Access - Source NAT details
 variable "snat_description" {
   description = "Description for SNAT rule"
+  default = ""
 }
 variable "snat_logging" {
   description = "Defines if the logging for this rule is enabled"
@@ -85,6 +86,7 @@ variable "snat_logging" {
 # Outgoing Internet Access - Firewall Rule
 variable "fw_internet_description" {
   description = "Description for the firewal rule"
+  default = ""
 }
 variable "fw_internet_logging" {
   description = "Defines if the logging for this rule is enabled"
@@ -94,6 +96,7 @@ variable "fw_internet_logging" {
 # Incoming Remote Access - Destination NAT details
 variable "dnat_description" {
   description = "Description for DNAT rule"
+  default = ""
 }
 variable "dnat_logging" {
   description = "Defines if the logging for this rule is enabled"
@@ -103,6 +106,7 @@ variable "dnat_logging" {
 # Incoming Remote Access - Firewal Rule
 variable "fw_remote_description" {
   description = "Description for the firewal rule"
+  default = ""
 }
 variable "fw_remote_logging" {
   description = "Defines if the logging for this rule is enabled"
