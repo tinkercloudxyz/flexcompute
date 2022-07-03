@@ -1,6 +1,6 @@
 /* 
 -------------------------------------------------------------------------------------------
-Name: 100-net-fw-rule-ipaddrs - main
+Name: 100-edge-fw-ipaddrs - main
 
 Description:  Setup of a firewall rule with ip addresses on an Edge Gateway in 
               Datacom Cloud FlexCompute
