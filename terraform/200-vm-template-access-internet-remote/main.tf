@@ -39,6 +39,7 @@ resource "vcd_vm" "vm" {
     type               = "org"
     name               = var.vm_network_name
     ip_allocation_mode = var.vm_ip_allocation_mode
+    ip                 = var.vm_ip_manual
   }
 }
 
@@ -47,8 +48,8 @@ resource "vcd_nsxv_snat" "snat_1" {
   edge_gateway = var.network_edge_gateway_name
   network_type = "ext"
   network_name = tolist(data.vcd_edgegateway.edgegw.external_network)[0].name
-  description  = "${var.vm_name} - VM to internet"
-
+  description  = var.snat_description != "" ?  var.snat_description : "${var.vm_name} - VM to internet"  #Check if snat description is blank, if so create a descripion
+  logging_enabled = var.snat_logging
   original_address = "${vcd_vm.vm.network[0].ip}"
   translated_address = "${data.vcd_edgegateway.edgegw.default_external_network_ip}"
 
@@ -58,9 +59,10 @@ resource "vcd_nsxv_snat" "snat_1" {
 # Outgoing Internet Access - Firewall rule allow outgoing internet access for VM
 resource "vcd_nsxv_firewall_rule" "fw_internet" {
   edge_gateway = var.network_edge_gateway_name
-  name         = "${var.vm_name} - allow outgoing internet access "
+  name         = var.fw_internet_description != "" ? var.fw_internet_description : "${var.vm_name} - allow outgoing internet access " #Check if fw internet description is blank, if so create a descripion
 
   action = "accept"
+  logging_enabled = var.fw_internet_logging
   source {
     ip_addresses = "${vcd_vm.vm.network[0].ip}"
   }
@@ -81,14 +83,13 @@ resource "vcd_nsxv_dnat" "dnat_1" {
   edge_gateway = var.network_edge_gateway_name
   network_type = "org"
   network_name = var.vm_network_name
-  enabled = var.dnat_enabled
-  description  = "${var.vm_name} - Remote Access on ${var.vm_remote_access_port} to VM"
+  description  = var.dnat_description != "" ?  var.dnat_description : "${var.vm_name} - Remote Access on ${var.vm_remote_access_port} to VM"
   logging_enabled = var.dnat_logging
 
   original_address = data.vcd_edgegateway.edgegw.default_external_network_ip
   original_port    = var.vm_remote_access_port
 
-  translated_address = vcd_vm.vm.network[0].ip
+  translated_address = "${vcd_vm.vm.network[0].ip}"
   translated_port    = var.vm_remote_access_port
   protocol           = var.vm_remote_access_protocol
 
@@ -97,12 +98,11 @@ resource "vcd_nsxv_dnat" "dnat_1" {
 
 # Incoming Remote Access - Firewall rule allow incoming remote access to VM
 resource "vcd_nsxv_firewall_rule" "fw_remote_access" {
-  org          = var.vcd_org
-  vdc          = var.vcd_vdc
   edge_gateway = var.network_edge_gateway_name
-  name         = "${var.vm_name} - allow incoming remote access "
+  name         = var.fw_remote_description != "" ? var.fw_remote_description : "${var.vm_name} - allow incoming remote access "
 
   action = "accept"
+  logging_enabled = var.fw_remote_logging
   source {
     ip_addresses = ["any"]
   }
@@ -115,5 +115,5 @@ resource "vcd_nsxv_firewall_rule" "fw_remote_access" {
     port        = var.vm_remote_access_port
   }
 
-  depends_on = [vcd_nsxv_snat.dnat_1]
+  depends_on = [vcd_nsxv_dnat.dnat_1]
 }
