@@ -111,7 +111,7 @@ resource "vcd_nsxv_firewall_rule" "fw_remote_access" {
   }
   service {
     protocol    = var.vm_remote_access_protocol
-    source_port = var.vm_remote_access_port
+    source_port = "any"
     port        = var.vm_remote_access_port
   }
 
