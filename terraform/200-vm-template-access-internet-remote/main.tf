@@ -64,7 +64,7 @@ resource "vcd_nsxv_firewall_rule" "fw_internet" {
   action = "accept"
   logging_enabled = var.fw_internet_logging
   source {
-    ip_addresses = "${vcd_vm.vm.network[0].ip}"
+    ip_addresses = ["${vcd_vm.vm.network[0].ip}"]
   }
   destination {
     ip_addresses = ["any"]
