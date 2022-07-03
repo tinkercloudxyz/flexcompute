@@ -25,7 +25,7 @@ resource "vcd_nsxv_dnat" "dnat_1" {
   network_name = var.network_name
   enabled = var.dnat_enabled
   description  = var.dnat_description
-  loggin_enabled = var.dnat_logging
+  logging_enabled = var.dnat_logging
 
   original_address = var.dnat_orig_addr
   original_port    = var.dnat_orig_port
