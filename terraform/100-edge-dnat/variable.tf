@@ -1,8 +1,8 @@
 /* 
 -------------------------------------------------------------------------------------------
-Name: 100-net-fw-dnat - variables
+Name: 100-edge-dnat  - variables
 
-Description:  Setup of a firewall destination NAT for internal (on an Edge Gateway in 
+Description:  Setup of a Destination NAT rule on an Edge Gateway in 
               Datacom Cloud FlexCompute
 
 Dependencies: Existing Org, VDC and Edge Gateway
@@ -32,10 +32,10 @@ variable "network_edge_gateway_name" {
 }
 
 # Destination NAT details
-variable "network_name" {
-  description = "The name of the network on which to apply the DNAT rule"
+variable "dnat_incoming_net_name" {
+  description = "Incoming network name on which to apply the DNAT rule"
 }
-variable "network_type" {
+variable "dnat_incoming_net_type" {
   description = "Type of the network on which to apply the DNAT rule. Possible values org (for internal) or ext (for external)."
 }
 variable "dnat_enabled" {

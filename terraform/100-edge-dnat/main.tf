@@ -1,8 +1,8 @@
 /* 
 -------------------------------------------------------------------------------------------
-Name: 100-net-fw-dnat - main
+Name: 100-edge-dnat - main
 
-Description:  Setup of a firewall destination NAT for internal (on an Edge Gateway in 
+Description:  Setup of a Destination NAT rule on an Edge Gateway in 
               Datacom Cloud FlexCompute
 
 Dependencies: Existing Org, VDC and Edge Gateway
@@ -21,8 +21,8 @@ provider "vcd" {
 # Destination NAT on Edge Gateway
 resource "vcd_nsxv_dnat" "dnat_1" {
   edge_gateway = var.network_edge_gateway_name
-  network_type = var.network_type
-  network_name = var.network_name
+  network_type = var.dnat_incoming_net_type
+  network_name = var.dnat_incoming_net_name
   enabled = var.dnat_enabled
   description  = var.dnat_description
   logging_enabled = var.dnat_logging
