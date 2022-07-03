@@ -81,12 +81,6 @@ variable "snat_logging" {
   description = "Defines if the logging for this rule is enabled"
   default = "false"
 }
-variable "snat_orig_addr" {
-  description = "Original source IP address, range or subnet. These addresses are the IP addresses of one or more virtual machines for which you are configuring the SNAT rule so that they can send traffic to the external network."
-}
-variable "snat_trans_addr" {
-  description = "Translated IP address, range or subnet. This address is always the external IP address of the gateway for which you are configuring the SNAT rule. Specifies the IP address to which source addresses (the virtual machines) on outbound packets are translated to when they send traffic to the external network."
-}
 
 # Outgoing Internet Access - Firewall Rule
 variable "fw_internet_description" {
