@@ -1,0 +1,32 @@
+/* 
+-------------------------------------------------------------------------------------------
+Name: 100-edge-dnat - example
+
+Description:  Setup of a Destination NAT rule on an Edge Gateway in 
+              Datacom Cloud FlexCompute
+
+Dependencies: Existing Org, VDC and Edge Gateway
+-------------------------------------------------------------------------------------------
+*/
+
+# VMware Cloud Director details and credentials 
+
+vcd_apiurl = "https://vcloud-hlz.datacomcloud.co.nz/api"
+vcd_user = "tinkeradmin"
+vcd_pass = "***********"
+vcd_org = "tinkorg"    
+vcd_vdc = "tinkvdc"
+
+# Edge Gateway
+
+network_edge_gateway_name = "tinkeredge1"
+
+# Destination NAT Rule
+dnat_incoming_net_name = "tinkeredge1"
+dnat_incoming_net_type = "org"
+dnat_description = "tinkernet1 - allow SSH access"
+dnat_orig_addr = "211.45.23.12"     # External public IP address of Edge Gateway
+dnat_orig_port = 22
+dnat_trans_addr = "192.168.1.12"      # IP address of internal virtual machine
+dnat_trans_port = 22
+dnat_protocol = tcp
