@@ -38,30 +38,30 @@ variable "network_name" {
 variable "network_type" {
   description = "Type of the network on which to apply the DNAT rule. Possible values org (for internal) or ext (for external)."
 }
-variable "network_dnat_enabled" {
+variable "dnat_enabled" {
   description = "Defines if the rule is enabled"
   default = "true"
 }
-variable "network_dnat_description" {
+variable "dnat_description" {
   description = "Description for DNAT rule"
 }
-variable "network_dnat_logging" {
+variable "dnat_logging" {
   description = "Defines if the logging for this rule is enabled"
   default = "false"
 }
-variable "network_dnat_orig_addr" {
+variable "dnat_orig_addr" {
   description = "Original destination IP address, range or subnet. In the packet being inspected, this IP address or range would be those that appear as the destination IP address of the packet. These packet destination addresses are the ones translated by this DNAT rule."
 }
-variable "network_dnat_orig_port" {
+variable "dnat_orig_port" {
   description = "Original destination port or port range. In the packet being inspected, this port or port range would be those that appear as the destination port of the packet. These packet destination ports are the ones translated by this DNAT rule."
 }
-variable "network_dnat_trans_addr" {
+variable "dnat_trans_addr" {
   description = "Translated IP address, range or subnet. IP addresses to which destination addresses on inbound packets will be translated. These addresses are the IP addresses of the one or more virtual machines for which you are configuring DNAT so that they can receive traffic from the external network."
 }
-variable "network_dnat_trans_port" {
+variable "dnat_trans_port" {
   description = "Select the port or port range that inbound traffic is connecting to on the virtual machines on the internal network. These ports are the ones into which the DNAT rule is translating for the packets inbound to the virtual machines."
 }
-variable "network_dnat_protocol" {
+variable "dnat_protocol" {
   description = "Select the protocol to which the rule applies. One of tcp, udp, icmp, any"
   default = "any"
 }

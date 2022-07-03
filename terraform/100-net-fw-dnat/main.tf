@@ -23,14 +23,14 @@ resource "vcd_nsxv_dnat" "dnat_1" {
   edge_gateway = var.network_edge_gateway_name
   network_type = var.network_type
   network_name = var.network_name
-  enabled = var.network_dnat_enabled
-  description  = var.network_dnat_description
-  loggin_enabled = var.network_dnat_logging
+  enabled = var.dnat_enabled
+  description  = var.dnat_description
+  loggin_enabled = var.dnat_logging
 
-  original_address = var.network_dnat_orig_addr
-  original_port    = var.network_dnat_orig_port
+  original_address = var.dnat_orig_addr
+  original_port    = var.dnat_orig_port
 
-  translated_address = var.network_dnat_trans_addr
-  translated_port    = var.network_dnat_trans_port
-  protocol           = var.network_dnat_protocol
+  translated_address = var.dnat_trans_addr
+  translated_port    = var.dnat_trans_port
+  protocol           = var.dnat_protocol
 }
