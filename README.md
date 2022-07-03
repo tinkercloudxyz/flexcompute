@@ -24,11 +24,11 @@ The following code samples are available:
 ### HashiCorp Terraform
 
 * **Building Blocks** *(Level 100)*
-  * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-vm-basic)
-  * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-vm-template)
-  * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-net-routed)
-  * [Firewall - Rule - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-net-fw-rule-ipaddrs)
-  * [Edge Gateway - Desitnation NAT](https://github.com/tinkercloudxyz/flexcompute/tree/dev/terraform/100-edge-dnat)
+  * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-basic)
+  * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-template)
+  * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-routed)
+  * [Firewall - Rule - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-fw-rule-ipaddrs)
+  * [Edge Gateway - Desitnation NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-dnat)
 * **Simple Stack** *(Level 200)*
 * **Advanced Stack** *(Level 300)*
 
