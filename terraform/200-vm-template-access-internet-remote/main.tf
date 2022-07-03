@@ -26,20 +26,6 @@ data "vcd_edgegateway" "edgegw" {
   name = var.network_edge_gateway_name
 }
 
-# Routed network on Edge Gateway
-resource "vcd_network_routed_v2" "net_routed" {
-  name            = var.network_name
-  interface_type  = "internal"
-  edge_gateway_id = data.vcd_edgegateway.edgegw.id
-  gateway         = var.network_gateway
-  prefix_length   = var.network_prefix_length
-
-  static_ip_pool {
-    start_address = var.network_static_ippool_start
-    end_address   = var.network_static_ippool_end
-  }
-}
-
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
   name          = var.vm_name
@@ -50,81 +36,84 @@ resource "vcd_vm" "vm" {
   cpus          = var.vm_cpus
   cpu_cores     = var.vm_cpucores
   network {
-    type               = var.vm_network_type
+    type               = "org"
     name               = var.vm_network_name
     ip_allocation_mode = var.vm_ip_allocation_mode
-    ip                 = var.vm_ip
   }
 }
 
-# Source NAT on Edge Gateway
+# Outgoing Internet Access - Source NAT
 resource "vcd_nsxv_snat" "snat_1" {
   edge_gateway = var.network_edge_gateway_name
-  network_type = var.snat_outgoing_net_type
-  network_name = var.snat_outgoing_net_name
-  enabled = var.snat_enabled
-  description  = var.snat_description
-  logging_enabled = var.snat_logging
+  network_type = "ext"
+  network_name = tolist(data.vcd_edgegateway.edgegw.external_network)[0].name
+  description  = "${var.vm_name} - VM to internet"
 
-  original_address = var.snat_orig_addr
-  translated_address = var.snat_trans_addr
+  original_address = "${vcd_vm.vm.network[0].ip}"
+  translated_address = "${data.vcd_edgegateway.edgegw.default_external_network_ip}"
+
+  depends_on = [vcd_vm.vm]
 }
 
-# Firewall rule on Edge Gateway
-resource "vcd_nsxv_firewall_rule" "fw_rule_1" {
-  org          = var.vcd_org
-  vdc          = var.vcd_vdc
+# Outgoing Internet Access - Firewall rule allow outgoing internet access for VM
+resource "vcd_nsxv_firewall_rule" "fw_internet" {
   edge_gateway = var.network_edge_gateway_name
-  name         = var.fw_rule_name
+  name         = "${var.vm_name} - allow outgoing internet access "
 
-  action = var.fw_rule_action
+  action = "accept"
   source {
-    ip_addresses = [var.fw_rule_src_ip_addrs]
+    ip_addresses = "${vcd_vm.vm.network[0].ip}"
   }
   destination {
-    ip_addresses = [var.fw_rule_dst_ip_addrs]
+    ip_addresses = ["any"]
   }
   service {
-    protocol    = var.fw_rule_protocol
-    source_port = var.fw_rule_src_port
-    port        = var.fw_rule_dst_port
+    protocol    = "any"
+    source_port = "any"
+    port        = "any"
   }
+
+  depends_on = [vcd_nsxv_snat.snat_1]
 }
 
-# Destination NAT on Edge Gateway
+# Incoming Remote Access - Destination NAT
 resource "vcd_nsxv_dnat" "dnat_1" {
   edge_gateway = var.network_edge_gateway_name
-  network_type = var.dnat_incoming_net_type
-  network_name = var.dnat_incoming_net_name
+  network_type = "org"
+  network_name = var.vm_network_name
   enabled = var.dnat_enabled
-  description  = var.dnat_description
+  description  = "${var.vm_name} - Remote Access on ${var.vm_remote_access_port} to VM"
   logging_enabled = var.dnat_logging
 
-  original_address = var.dnat_orig_addr
-  original_port    = var.dnat_orig_port
+  original_address = data.vcd_edgegateway.edgegw.default_external_network_ip
+  original_port    = var.vm_remote_access_port
 
-  translated_address = var.dnat_trans_addr
-  translated_port    = var.dnat_trans_port
-  protocol           = var.dnat_protocol
+  translated_address = vcd_vm.vm.network[0].ip
+  translated_port    = var.vm_remote_access_port
+  protocol           = var.vm_remote_access_protocol
+
+  depends_on = [vcd_vm.vm]
 }
 
-# Firewall rule on Edge Gateway
-resource "vcd_nsxv_firewall_rule" "fw_rule_1" {
+# Incoming Remote Access - Firewall rule allow incoming remote access to VM
+resource "vcd_nsxv_firewall_rule" "fw_remote_access" {
   org          = var.vcd_org
   vdc          = var.vcd_vdc
   edge_gateway = var.network_edge_gateway_name
-  name         = var.fw_rule_name
+  name         = "${var.vm_name} - allow incoming remote access "
 
-  action = var.fw_rule_action
+  action = "accept"
   source {
-    ip_addresses = [var.fw_rule_src_ip_addrs]
+    ip_addresses = ["any"]
   }
   destination {
-    ip_addresses = [var.fw_rule_dst_ip_addrs]
+    ip_addresses = ["${data.vcd_edgegateway.edgegw.default_external_network_ip}"]
   }
   service {
-    protocol    = var.fw_rule_protocol
-    source_port = var.fw_rule_src_port
-    port        = var.fw_rule_dst_port
+    protocol    = var.vm_remote_access_protocol
+    source_port = var.vm_remote_access_port
+    port        = var.vm_remote_access_port
   }
+
+  depends_on = [vcd_nsxv_snat.dnat_1]
 }
