@@ -32,10 +32,10 @@ variable "network_edge_gateway_name" {
 }
 
 # Destination NAT details
-variable "snat_incoming_net_name" {
+variable "snat_outgoing_net_name" {
   description = "Outgoing network name on which to apply the snat rule"
 }
-variable "snat_incoming_net_type" {
+variable "snat_outgoing_net_type" {
   description = "Type of the network on which to apply the snat rule. Possible values org (for internal) or ext (for external)."
 }
 variable "snat_enabled" {

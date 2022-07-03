@@ -21,8 +21,8 @@ provider "vcd" {
 # Source NAT on Edge Gateway
 resource "vcd_nsxv_snat" "snat_1" {
   edge_gateway = var.network_edge_gateway_name
-  network_type = var.snat_incoming_net_type
-  network_name = var.snat_incoming_net_name
+  network_type = var.snat_outgoing_net_type
+  network_name = var.snat_outgoing_net_name
   enabled = var.snat_enabled
   description  = var.snat_description
   logging_enabled = var.snat_logging

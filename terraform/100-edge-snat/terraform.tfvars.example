@@ -22,8 +22,8 @@ vcd_vdc = "tinkvdc"
 network_edge_gateway_name = "tinkeredge1"
 
 # Destination NAT Rule
-snat_incoming_net_name = "tinkeredge1"
-snat_incoming_net_type = "ext"
+snat_outgoing_net_name = "tinkeredge1"
+snat_outgoing_net_type = "ext"
 snat_description = "tinkernet1 - allow internet access"
 snat_orig_addr = "192.168.1.12"      # IP address of internal virtual machine
 snat_trans_addr = "211.45.23.12"     # External public IP address of Edge Gateway
