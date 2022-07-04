@@ -27,7 +27,7 @@ The following code samples are available:
   * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-basic)
   * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-template)
   * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-routed)
-  * [Edge Gateway - Firewall - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-fw-rule-ipaddrs)
+  * [Edge Gateway - Firewall - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/main/terraform/100-edge-fw-ipaddrs)
   * [Edge Gateway - Destination NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-dnat)
   * [Edge Gateway - Source NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-snat)
 * **Simple Stack** *(Level 200)*
