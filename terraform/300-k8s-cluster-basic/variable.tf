@@ -14,13 +14,14 @@ variable "network_edge_gateway_name" {
   description = "Name of the edge gateway for the network to which the VM is connected"
 }
 
+#Catalogue
+variable "template_catalog" {
+  description = "Catalog name in which to find the given vApp Template"
+}
 
 # Bastion VM variables
 variable "bastion_name" {
   description = "Name of the Bastion virtual machine (VM)"
-}
-variable "template_catalog" {
-  description = "Catalog name in which to find the given vApp Template"
 }
 variable "bastion_template" {
   description = "Name of the vApp Template to use for Bastion"
@@ -58,9 +59,6 @@ variable "nodes_count" {
 }
 variable "nodes_name_prefix" {
   description = "Prefix for names for the node VMs"
-}
-variable "template_catalog" {
-  description = "Catalog name in which to find the given vApp Template"
 }
 variable "nodes_template" {
   description = "Name of the vApp Template to use for the node VMs"
