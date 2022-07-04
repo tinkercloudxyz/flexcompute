@@ -31,7 +31,7 @@ variable "network_edge_gateway_name" {
   description = "Name for the edge gateway to which network is connected"
 }
 
-# Destination NAT details
+# Source NAT details
 variable "snat_outgoing_net_name" {
   description = "Outgoing network name on which to apply the snat rule"
 }

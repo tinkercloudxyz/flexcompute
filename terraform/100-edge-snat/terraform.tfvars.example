@@ -21,7 +21,7 @@ vcd_vdc = "tinkvdc"
 
 network_edge_gateway_name = "tinkeredge1"
 
-# Destination NAT Rule
+# Source NAT Rule
 snat_outgoing_net_name = "tinkeredge1"
 snat_outgoing_net_type = "ext"
 snat_description = "tinkernet1 - allow internet access"
