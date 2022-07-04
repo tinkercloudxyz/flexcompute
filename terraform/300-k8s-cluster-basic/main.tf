@@ -40,13 +40,14 @@ module "bastion" {
 # Kubernetes comnbined nodes
 module "nodes" {
   source = "./vm-node"
+  count                 = var.nodes_count
+
   # Edge Gateway
   network_edge_gateway_name           = data.vcd_edgegateway.edgegw.name
   network_edge_gateway_extnet_name    = tolist(data.vcd_edgegateway.edgegw.external_network)[0].name
   network_edge_gateway_extnet_ipaddr  = data.vcd_edgegateway.edgegw.default_external_network_ip
 
   # Virtual Machine variables
-  count                 = var.nodes_count
   vm_name               = "${var.nodes_name_prefix}${count.index + 1}"
   template_catalog      = var.template_catalog
   vm_template           = var.nodes_template
