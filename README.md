@@ -31,6 +31,7 @@ The following code samples are available:
   * [Edge Gateway - Destination NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-dnat)
   * [Edge Gateway - Source NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-snat)
 * **Simple Stack** *(Level 200)*
+  * [Single VM from template with outgoing internet access and incoming remote access](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/200-vm-template-access-internet-remote)
 * **Advanced Stack** *(Level 300)*
 
 ### VMware PowerCLI
