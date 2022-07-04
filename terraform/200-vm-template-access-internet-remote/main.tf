@@ -31,7 +31,6 @@ resource "vcd_vm" "vm" {
   name          = var.vm_name
   catalog_name  = var.template_catalog
   template_name = var.vm_template
-  power_on      = "true"
   memory        = var.vm_memory
   cpus          = var.vm_cpus
   cpu_cores     = var.vm_cpucores
@@ -40,6 +39,12 @@ resource "vcd_vm" "vm" {
     name               = var.vm_network_name
     ip_allocation_mode = var.vm_ip_allocation_mode
     ip                 = var.vm_ip_manual
+  }
+  power_on      = "true"
+  customization {
+    enabled = "true"
+    allow_local_admin_password = "true"
+    auto_generate_password = "true"
   }
 }
 
