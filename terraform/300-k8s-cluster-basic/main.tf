@@ -32,7 +32,7 @@ module "bastion" {
   vm_memory                 = var.bastion_memory
   vm_cpus                   = var.bastion_cpus
   vm_network_name           = var.bastion_network_name
-  vm_ip_allocation_mode     = var.bastion_ipalloc_mode
+  vm_ip_allocation_mode     = var.bastion_ip_alloc_mode
   vm_remote_access_port     = var.bastion_remote_access_port
   vm_remote_access_protocol = var.bastion_remote_access_protocol
 }
@@ -55,5 +55,5 @@ module "nodes" {
   vm_memory             = var.nodes_memory
   vm_cpus               = var.nodes_cpus
   vm_network_name       = var.nodes_network_name
-  vm_ip_allocation_mode = var.nodes_ipalloc_mode
+  vm_ip_allocation_mode = var.nodes_ip_alloc_mode
 }
