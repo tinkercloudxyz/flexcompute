@@ -33,8 +33,8 @@ module "bastion" {
   vm_cpus                   = var.bastion_cpus
   vm_network_name           = var.bastion_network_name
   vm_ip_allocation_mode     = var.bastion_ipalloc_mode
-  vm_remote_access_port     = var.bastion_remote_acces_port
-  vm_remote_access_protocol = var.bastion_remote_acces_protocol
+  vm_remote_access_port     = var.bastion_remote_access_port
+  vm_remote_access_protocol = var.bastion_remote_access_protocol
 }
 
 # Kubernetes comnbined nodes

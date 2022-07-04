@@ -9,6 +9,23 @@ Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
 -------------------------------------------------------------------------------------------
 */
 
+# VMware Cloud Director Provider variables
+variable "vcd_apiurl" {
+  description = "URL for the Cloud Director API endpoint"
+}
+variable "vcd_user" {
+  description = "Username for Cloud Director API operations"
+}
+variable "vcd_pass" {
+  description = "Password for Cloud Director API operations"
+}
+variable "vcd_org" {
+  description = "Cloud Director Org on which to run API operations"    
+}
+variable "vcd_vdc" {
+  description = "Virtual datacenter within Cloud Director to run API operations against"
+}
+
 #Edge Gateway
 variable "network_edge_gateway_name" {
   description = "Name of the edge gateway for the network to which the VM is connected"
@@ -40,7 +57,7 @@ variable "bastion_cpus" {
 variable "bastion_network_name" {
   description = "Name of the network the Bastion VM should connect to"
 }
-variable "bastion_ip_allocation_mode" {
+variable "bastion_ip_alloc_mode" {
   description = "IP address allocation mode. One of `POOL`, `DHCP`, `MANUAL`, `NONE`"
   default = "POOL"
 }
@@ -77,7 +94,7 @@ variable "nodes_cpus" {
 variable "nodes_network_name" {
   description = "Name of the network the the node VMs should connect to"
 }
-variable "nodes_ip_allocation_mode" {
+variable "nodes_ip_alloc_mode" {
   description = "IP address allocation mode. One of `POOL`, `DHCP`, `MANUAL`, `NONE`"
   default = "POOL"
 }
