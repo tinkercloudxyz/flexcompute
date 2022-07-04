@@ -81,8 +81,8 @@ resource "vcd_nsxv_firewall_rule" "fw_internet" {
 # Incoming Remote Access - Destination NAT
 resource "vcd_nsxv_dnat" "dnat_1" {
   edge_gateway = var.network_edge_gateway_name
-  network_type = "org"
-  network_name = var.vm_network_name
+  network_type = "ext"
+  network_name = tolist(data.vcd_edgegateway.edgegw.external_network)[0].name
   description  = var.dnat_description != "" ?  var.dnat_description : "${var.vm_name} - Remote Access on ${var.vm_remote_access_port} to VM"
   logging_enabled = var.dnat_logging
 
