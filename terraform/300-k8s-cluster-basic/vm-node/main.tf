@@ -27,6 +27,7 @@ resource "vcd_vm" "vm" {
   customization {
     enabled = "true"
     allow_local_admin_password = "true"
+    auto_generate_password = "false"
     admin_password = var.vm_admin_pwd
   }
 }
