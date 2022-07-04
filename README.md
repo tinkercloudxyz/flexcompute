@@ -24,9 +24,14 @@ The following code samples are available:
 ### HashiCorp Terraform
 
 * **Building Blocks** *(Level 100)*
-  * VM - Basic
-  * VM - Basic from Template
+  * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-basic)
+  * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-template)
+  * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-routed)
+  * [Edge Gateway - Firewall - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-fw-rule-ipaddrs)
+  * [Edge Gateway - Destination NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-dnat)
+  * [Edge Gateway - Source NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-snat)
 * **Simple Stack** *(Level 200)*
+  * [Single VM from template with outgoing internet access and incoming remote access](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/200-vm-template-access-internet-remote)
 * **Advanced Stack** *(Level 300)*
 
 ### VMware PowerCLI

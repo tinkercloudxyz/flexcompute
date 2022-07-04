@@ -1,0 +1,32 @@
+/* 
+-------------------------------------------------------------------------------------------
+Name: 100-edge-fw-ipaddrs - example
+
+Description:  Setup of a firewall rule with ip addresses on an Edge Gateway in 
+              Datacom Cloud FlexCompute
+
+Dependencies: Existing Org, VDC and Edge Gateway
+-------------------------------------------------------------------------------------------
+*/
+
+# VMware Cloud Director details and credentials 
+
+vcd_apiurl = "https://vcloud-hlz.datacomcloud.co.nz/api"
+vcd_user = "tinkeradmin"
+vcd_pass = "***********"
+vcd_org = "tinkorg"    
+vcd_vdc = "tinkvdc"
+
+# Edge Gateway
+
+network_edge_gateway_name = "tinkeredge1"
+
+# Firewall Rule
+
+fw_rule_name = "tinkvm1 - incoming ssh"
+fw_rule_action = "accept"
+fw_rule_src_ip_addrs = "any"
+fw_rule_src_port = "any"
+fw_rule_dst_ip_addrs = "192.168.1.123"
+fw_rule_src_port = "22"
+fw_rule_protocol = "tcp"
