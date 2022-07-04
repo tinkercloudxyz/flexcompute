@@ -83,3 +83,23 @@ variable "fw_internet_logging" {
   description = "Defines if the logging for this rule is enabled"
   default = "false"
 }
+
+# Incoming Remote Access - Destination NAT details
+variable "dnat_description" {
+  description = "Description for DNAT rule"
+  default = ""
+}
+variable "dnat_logging" {
+  description = "Defines if the logging for this rule is enabled"
+  default = "false"
+}
+
+# Incoming Remote Access - Firewal Rule
+variable "fw_remote_description" {
+  description = "Description for the firewal rule"
+  default = ""
+}
+variable "fw_remote_logging" {
+  description = "Defines if the logging for this rule is enabled"
+  default = "false"
+}
