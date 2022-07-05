@@ -9,7 +9,7 @@ Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
 -------------------------------------------------------------------------------------------
 */
 
-# Local admin password
+/* # Local admin password
 provider "htpasswd" {
 }
 resource "random_password" "salt" {
@@ -18,7 +18,7 @@ resource "random_password" "salt" {
 resource "htpasswd_password" "hash" {
   password = var.vm_localadmin_passwd
   salt     = random_password.salt.result
-}
+} */
 
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
