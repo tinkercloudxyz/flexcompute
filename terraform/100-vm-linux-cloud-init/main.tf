@@ -38,6 +38,6 @@ resource "vcd_vm" "vm" {
   }
 
   guest_properties = {
-    "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, passwd = htpasswd_password.hash.sha512 }))
+    "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, passwd = htpasswd_password.hash.sha512 }))
   }
 }
