@@ -2,7 +2,7 @@
 
 hostname: ${hostname}
 users:
- - name: ubuntu
+ - name: ${localadmin}
    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
    groups: [sudo]
    shell: /bin/bash
