@@ -13,6 +13,11 @@ terraform {
       source  = "vmware/vcd"
       version = ">= 3.6.0"
     }
+    #provider: htpasswd - https://registry.terraform.io/providers/loafoe/htpasswd/1.0.3
+    htpasswd = {
+      source  = "loafoe/htpasswd"
+      version = ">= 1.0.3"
+    }
   }
 }
 
