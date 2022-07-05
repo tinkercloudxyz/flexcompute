@@ -1,8 +1,8 @@
 #cloud-config
 
-hostname: ${hostname}
+hostname: mustwork
 users:
- - name: $(localadmin)
+ - name: ubuntu
    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
    groups: [sudo]
    shell: /bin/bash
