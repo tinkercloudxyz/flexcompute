@@ -2,7 +2,7 @@
 
 hostname: mustwork
 users:
- - name: ubuntu
+ - name: ${hostname}
    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
    groups: [sudo]
    shell: /bin/bash
