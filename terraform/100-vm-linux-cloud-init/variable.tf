@@ -30,6 +30,10 @@ variable "vcd_vdc" {
 variable "vm_name" {
   description = "VM name"
 }
+variable "vm_vm_localadmin_passwd" {
+  description = "Password to set for the local admin account for the VM"
+  sensitive   = true
+}
 variable "template_catalog" {
   description = "Catalog name in which to find the given vApp Template"
 }

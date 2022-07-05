@@ -9,6 +9,17 @@ Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
 -------------------------------------------------------------------------------------------
 */
 
+# Local admin password
+provider "htpasswd" {
+}
+resource "random_password" "salt" {
+  length = 8
+}
+resource "htpasswd_password" "hash" {
+  password = var.vm_localadmin_passwd
+  salt     = random_password.salt.result
+}
+
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
   name          = var.vm_name
@@ -18,10 +29,15 @@ resource "vcd_vm" "vm" {
   memory        = var.vm_memory
   cpus          = var.vm_cpus
   cpu_cores     = var.vm_cpucores
+
   network {
     type               = var.vm_network_type
     name               = var.vm_network_name
     ip_allocation_mode = var.vm_ip_allocation_mode
     ip                 = var.vm_ip
+  }
+
+  guest_properties = {
+    "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, passwd = htpasswd_password.hash.sha512 }))
   }
 }

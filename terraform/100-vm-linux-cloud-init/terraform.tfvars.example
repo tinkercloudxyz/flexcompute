@@ -20,6 +20,7 @@ vcd_vdc = "tinkvdc"
 # Virtual Machine variables
 
 vm_name = "tinkvm1"
+vm_vm_localadmin_passwd = "********"
 template_catalog = "tinker-catalog"
 vm_template = "tink-ubuntu-20"
 vm_memory = "2048"

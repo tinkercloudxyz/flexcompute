@@ -1,0 +1,11 @@
+#cloud-config
+
+hostname: ${hostname}
+users:
+ - name: localadmin
+   sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+   groups: [sudo]
+   shell: /bin/bash
+   passwd: ${passwd}
+manage_resolv_conf: true
+final_message: "The system is ready and prepped (took $UPTIME seconds)"
