@@ -5,20 +5,10 @@ Name: 100-vm-linux-cloud-init - main
 Description:  Setup of a stand alone linux virtual machine in Datacom Cloud FlexCompute
               based on a vApp template and customised using cloud-init
 
-Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
+Dependencies: Existing Org, VDC, Edge Gateway, Network and 
+              Linux VM Template supporting cloud-init
 -------------------------------------------------------------------------------------------
 */
-
-/* # Local admin password
-provider "htpasswd" {
-}
-resource "random_password" "salt" {
-  length = 8
-}
-resource "htpasswd_password" "hash" {
-  password = var.vm_localadmin_passwd
-  salt     = random_password.salt.result
-} */
 
 # VM based on specified VM template
 resource "vcd_vm" "vm" {
@@ -38,8 +28,6 @@ resource "vcd_vm" "vm" {
   }
 
   guest_properties = {
-    # "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, passwd = htpasswd_password.hash.sha512 }))
-    # "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key }))
     "user-data" = base64encode(templatefile("cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key }))
   }
 }

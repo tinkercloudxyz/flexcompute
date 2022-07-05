@@ -5,7 +5,8 @@ Name: 100-vm-linux-cloud-init - example
 Description:  Setup of a stand alone linux virtual machine in Datacom Cloud FlexCompute
               based on a vApp template and customised using cloud-init
 
-Dependencies: Existing Org, VDC, Edge Gateway, Network and VM Template
+Dependencies: Existing Org, VDC, Edge Gateway, Network and 
+              Linux VM Template supporting cloud-init
 -------------------------------------------------------------------------------------------
 */
 
@@ -22,6 +23,7 @@ vcd_vdc = "tinkvdc"
 vm_name = "tinkvm1"
 vm_localadmin_username = "ubuntu"
 vm_vm_localadmin_passwd = "********"
+vm_ssh_authorized_key = "sha-rsa ***********************************"
 template_catalog = "tinker-catalog"
 vm_template = "tink-ubuntu-20"
 vm_memory = "2048"
