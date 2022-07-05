@@ -7,6 +7,6 @@ users:
    groups: [sudo]
    shell: /bin/bash
    ssh_authorized_keys:
-    - ${sshauthorizedkey}
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD25zzhHTexnjpdGOvzjFVGyNDzHp4kXlWKulqU8aQriNq4m5vuTuw0LhXNTNfB5u9eSHFcw3/pyewJDKDlhOHa4rF7HGEW2UTBuFc6JLX3hWfWnqGKucn2cctoN0RBaDu4W6jzZ6JOwh9pO4rsgOh36lDpy2As8aUUBJhrCTk62XlkREV6tWx2OOn7eJ9SL/Noy0IJcZc+4mY3fMLobFlJBOCKzjECAJj5kmSJ4bnFEJoCD6AuXBlKrrU+eVt3VentoFWNNICRzRugnvEUafhVFANW1VTaC7p0cjqhtusshgP0gmi2Sj9vVSbWTYXLqT8oHubg0ZUKcoZQQEdWPjmX/TTELgMV3iu9ghtUjKOuC76BjurgjktZqlYfwkGFeMhNaKvaGlnmqf1uWa7s6ot3kEeFZLUcY42QKqttxCmHFvcvJTDr9pwes77F6D7xoPsRnePwQsYXsQ93H2kMVyFrYFnHvVgtaxyaGIjcM7JxWWPMG6ANdLeer3TYL8eOsuk= petervangrinsven@Y22KQ56RKQ.iot.realm.local
 manage_resolv_conf: true
 final_message: "The system is ready and prepped (took $UPTIME seconds)"
