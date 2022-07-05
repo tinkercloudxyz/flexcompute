@@ -34,8 +34,12 @@ variable "vm_localadmin_username" {
   description = "Username for the local admin account for the VM"
   sensitive   = true
 }
-variable "vm_localadmin_passwd" {
+/* variable "vm_localadmin_passwd" {
   description = "Password to set for the local admin account for the VM"
+  sensitive   = true
+} */
+variable "vm_ssh_authorized_key" {
+  description = "Authorised SSH key for the local admin account for the VM"
   sensitive   = true
 }
 variable "template_catalog" {
