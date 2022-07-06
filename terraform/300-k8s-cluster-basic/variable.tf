@@ -77,6 +77,12 @@ variable "nodes_count" {
 variable "nodes_name_prefix" {
   description = "Prefix for names for the node VMs"
 }
+variable "nodes_localadmin_username" {
+  description = "Username for the local admin account on the node VMs"
+}
+variable "nodes_ssh_authorized_key" {
+  description = "Authorised SSH key for the local admin account on the node VMs"
+}
 variable "nodes_template" {
   description = "Name of the vApp Template to use for the node VMs"
 }

@@ -48,12 +48,14 @@ module "nodes" {
   network_edge_gateway_extnet_ipaddr  = data.vcd_edgegateway.edgegw.default_external_network_ip
 
   # Virtual Machine variables
-  vm_name               = "${var.nodes_name_prefix}${count.index + 1}"
-  template_catalog      = var.template_catalog
-  vm_template           = var.nodes_template
-  vm_admin_pwd          = var.nodes_admin_pwd
-  vm_memory             = var.nodes_memory
-  vm_cpus               = var.nodes_cpus
-  vm_network_name       = var.nodes_network_name
-  vm_ip_allocation_mode = var.nodes_ip_alloc_mode
+  vm_name                 = "${var.nodes_name_prefix}${count.index + 1}"
+  vm_localadmin_username  = var.nodes_localadmin_username
+  vm_ssh_authorized_key   = var.nodes_ssh_authorized_key
+  template_catalog        = var.template_catalog
+  vm_template             = var.nodes_template
+  vm_admin_pwd            = var.nodes_admin_pwd
+  vm_memory               = var.nodes_memory
+  vm_cpus                 = var.nodes_cpus
+  vm_network_name         = var.nodes_network_name
+  vm_ip_allocation_mode   = var.nodes_ip_alloc_mode
 }
