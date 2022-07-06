@@ -16,6 +16,12 @@ data "vcd_edgegateway" "edgegw" {
   name = var.network_edge_gateway_name
 }
 
+# Generate ssh key pair to be used for authorisation to node VMs from Bastion VM
+resource "tls_private_key" "node_ssh_keypair" {
+  algorithm = "RSA"
+  rsa_bits  = "4096"
+}
+
 # Bastion node
 module "bastion" {
   source = "./vm-bastion"
@@ -25,17 +31,18 @@ module "bastion" {
   network_edge_gateway_extnet_ipaddr  = data.vcd_edgegateway.edgegw.default_external_network_ip
 
   # Virtual Machine variables
-  vm_name                   = var.bastion_name
-  vm_localadmin_username    = var.bastion_localadmin_username
-  vm_ssh_authorized_key     = var.bastion_ssh_authorized_key
-  template_catalog          = var.template_catalog
-  vm_template               = var.bastion_template
-  vm_memory                 = var.bastion_memory
-  vm_cpus                   = var.bastion_cpus
-  vm_network_name           = var.bastion_network_name
-  vm_ip_allocation_mode     = var.bastion_ip_alloc_mode
-  vm_remote_access_port     = var.bastion_remote_access_port
-  vm_remote_access_protocol = var.bastion_remote_access_protocol
+  vm_name                       = var.bastion_name
+  vm_localadmin_username        = var.bastion_localadmin_username
+  vm_ssh_authorized_key         = var.bastion_ssh_authorized_key
+  vm_remote_node_authorized_key = tls_private_key.node_ssh_keypair.private_key_openssh
+  template_catalog              = var.template_catalog
+  vm_template                   = var.bastion_template
+  vm_memory                     = var.bastion_memory
+  vm_cpus                       = var.bastion_cpus
+  vm_network_name               = var.bastion_network_name
+  vm_ip_allocation_mode         = var.bastion_ip_alloc_mode
+  vm_remote_access_port         = var.bastion_remote_access_port
+  vm_remote_access_protocol     = var.bastion_remote_access_protocol
 }
 
 # Kubernetes comnbined nodes
@@ -51,7 +58,7 @@ module "nodes" {
   # Virtual Machine variables
   vm_name                 = "${var.nodes_name_prefix}${count.index + 1}"
   vm_localadmin_username  = var.nodes_localadmin_username
-  vm_ssh_authorized_key   = var.nodes_ssh_authorized_key
+  vm_ssh_authorized_key   = chomp(tls_private_key.node_ssh_keypair.public_key_openssh)
   template_catalog        = var.template_catalog
   vm_template             = var.nodes_template
   vm_memory               = var.nodes_memory

@@ -13,6 +13,11 @@ terraform {
       source  = "vmware/vcd"
       version = ">= 3.6.0"
     }
+    #provider: Hashicorp tls - https://registry.terraform.io/providers/hashicorp/tls/3.4.0
+    tls = {
+      source  = "hashicorp/tls"
+      version = ">= 3.4.0"
+    }  
   }
 }
 

@@ -30,6 +30,9 @@ variable "vm_localadmin_username" {
 variable "vm_ssh_authorized_key" {
   description = "Authorised SSH key for the local admin account for the VM"
 }
+variable "vm_remote_node_authorized_key" {
+  description = "Authorised SSH key for remote access from Bastion VM to node VMs"
+}
 variable "template_catalog" {
   description = "Catalog name in which to find the given vApp Template"
 }

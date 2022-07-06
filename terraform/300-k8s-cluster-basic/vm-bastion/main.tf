@@ -26,7 +26,7 @@ resource "vcd_vm" "vm" {
   power_on      = "true"
   
   guest_properties = {
-    "user-data" = base64encode(templatefile("${path.module}/cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key }))
+    "user-data" = base64encode(templatefile("${path.module}/cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key, remotesshauthorizedkey = var.vm_remote_node_authorized_key }))
   }
   
 }
