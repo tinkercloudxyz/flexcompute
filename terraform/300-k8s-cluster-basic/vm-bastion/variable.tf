@@ -24,14 +24,17 @@ variable "network_edge_gateway_extnet_ipaddr" {
 variable "vm_name" {
   description = "Name of the virtual machine (VM)"
 }
+variable "vm_localadmin_username" {
+  description = "Username for the local admin account for the VM"
+}
+variable "vm_ssh_authorized_key" {
+  description = "Authorised SSH key for the local admin account for the VM"
+}
 variable "template_catalog" {
   description = "Catalog name in which to find the given vApp Template"
 }
 variable "vm_template" {
   description = "Name of the vApp Template to use"
-}
-variable "vm_admin_pwd" {
-  description = "Local admin password for VM"
 }
 variable "vm_memory" {
   description = "Amount of RAM (in MB) to allocate to the VM"

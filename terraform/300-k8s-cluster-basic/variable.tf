@@ -40,11 +40,14 @@ variable "template_catalog" {
 variable "bastion_name" {
   description = "Name of the Bastion virtual machine (VM)"
 }
-variable "bastion_template" {
-  description = "Name of the vApp Template to use for Bastion"
+variable "bastion_localadmin_username" {
+  description = "Username for the local admin account for the Bastion VM"
 }
-variable "bastion_admin_pwd" {
-  description = "Local admin password for Bastion VM"
+variable "bastion_ssh_authorized_key" {
+  description = "Authorised SSH key for the local admin account for the Bastion VM"
+}
+variable "bastion_template" {
+  description = "Name of the vApp Template to use for Bastion VM"
 }
 variable "bastion_memory" {
   description = "Amount of RAM (in MB) to allocate to the Bastion VM"

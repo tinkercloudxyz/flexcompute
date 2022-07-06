@@ -26,9 +26,10 @@ module "bastion" {
 
   # Virtual Machine variables
   vm_name                   = var.bastion_name
+  vm_localadmin_username    = var.bastion_localadmin_username
+  vm_ssh_authorized_key     = var.bastion_ssh_authorized_key
   template_catalog          = var.template_catalog
   vm_template               = var.bastion_template
-  vm_admin_pwd              = var.bastion_admin_pwd
   vm_memory                 = var.bastion_memory
   vm_cpus                   = var.bastion_cpus
   vm_network_name           = var.bastion_network_name

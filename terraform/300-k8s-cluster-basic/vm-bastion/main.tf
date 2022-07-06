@@ -24,12 +24,11 @@ resource "vcd_vm" "vm" {
     ip                 = var.vm_ip_manual
   }
   power_on      = "true"
-  customization {
-    enabled = "true"
-    allow_local_admin_password = "true"
-    auto_generate_password = "false"
-    admin_password = var.vm_admin_pwd
+  
+  guest_properties = {
+    "user-data" = base64encode(templatefile("vm-node/cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key }))
   }
+  
 }
 
 # Outgoing Internet Access - Source NAT
