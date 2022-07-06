@@ -86,9 +86,6 @@ variable "nodes_ssh_authorized_key" {
 variable "nodes_template" {
   description = "Name of the vApp Template to use for the node VMs"
 }
-variable "nodes_admin_pwd" {
-  description = "Local admin password for the node VMs"
-}
 variable "nodes_memory" {
   description = "Amount of RAM (in MB) to allocate to the the node VMs"
   default = 2048

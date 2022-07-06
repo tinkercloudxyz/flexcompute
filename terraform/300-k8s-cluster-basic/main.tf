@@ -53,7 +53,6 @@ module "nodes" {
   vm_ssh_authorized_key   = var.nodes_ssh_authorized_key
   template_catalog        = var.template_catalog
   vm_template             = var.nodes_template
-  vm_admin_pwd            = var.nodes_admin_pwd
   vm_memory               = var.nodes_memory
   vm_cpus                 = var.nodes_cpus
   vm_network_name         = var.nodes_network_name

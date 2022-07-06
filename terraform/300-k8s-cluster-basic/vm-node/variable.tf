@@ -36,9 +36,6 @@ variable "template_catalog" {
 variable "vm_template" {
   description = "Name of the vApp Template to use"
 }
-variable "vm_admin_pwd" {
-  description = "Local admin password for VM"
-}
 variable "vm_memory" {
   description = "Amount of RAM (in MB) to allocate to the VM"
   default = 2048
