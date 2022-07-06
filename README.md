@@ -26,6 +26,7 @@ The following code samples are available:
 * **Building Blocks** *(Level 100)*
   * [VM - Basic](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-basic)
   * [VM - Basic from Template](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-template)
+  * [VM - Basic from Linux Template with cloud-init customisation](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-vm-linux-cloud-init)
   * [Network - Routed](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-net-routed)
   * [Edge Gateway - Firewall - IP addresses](https://github.com/tinkercloudxyz/flexcompute/tree/main/terraform/100-edge-fw-ipaddrs)
   * [Edge Gateway - Destination NAT](https://github.com/tinkercloudxyz/flexcompute/tree/master/terraform/100-edge-dnat)
