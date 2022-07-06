@@ -34,7 +34,7 @@ module "bastion" {
   vm_name                       = var.bastion_name
   vm_localadmin_username        = var.bastion_localadmin_username
   vm_ssh_authorized_key         = var.bastion_ssh_authorized_key
-  vm_remote_node_authorized_key = tls_private_key.node_ssh_keypair.private_key_openssh
+  vm_remote_node_authorized_key = chomp(tls_private_key.node_ssh_keypair.private_key_openssh)
   template_catalog              = var.template_catalog
   vm_template                   = var.bastion_template
   vm_memory                     = var.bastion_memory

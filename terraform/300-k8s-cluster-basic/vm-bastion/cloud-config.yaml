@@ -10,5 +10,5 @@ users:
     - ${sshauthorizedkey}
 manage_resolv_conf: true
 runcmd:
- - echo ${remotesshauthorizedkey} > /home/${localadmin}/.ssh/id_rsa
+ - echo "${remotesshauthorizedkey}"" > /home/${localadmin}/.ssh/id_rsa
 final_message: "The system is ready and prepped (took $UPTIME seconds)"
