@@ -10,7 +10,7 @@ users:
     - ${sshauthorizedkey}
 manage_resolv_conf: true
 write_files:
-- encoding: text/plain
+- encoding: b64
   content: '${remotesshauthorizedkey}'
   owner: ubuntu:ubuntu
   path: /home/${localadmin}/.ssh/id_rsa
