@@ -14,5 +14,5 @@ write_files:
   content: '${remotesshauthorizedkey}'
   owner: ubuntu:ubuntu
   path: /home/${localadmin}/.ssh/id_rsa
-  permissions: '0500'
+  permissions: '0600'
 final_message: "The system is ready and prepped (took $UPTIME seconds)"
