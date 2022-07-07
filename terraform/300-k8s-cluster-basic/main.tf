@@ -69,7 +69,7 @@ module "nodes" {
 
 
 # temporary outputs
-output "remote_node_authorized_key" {
-  value = chomp(tls_private_key.node_ssh_keypair.private_key_openssh)
+output "cloudinitfilecontents" {
+  value = module.bastion.cloudinitfilecontents
   sensitive = true
 }
