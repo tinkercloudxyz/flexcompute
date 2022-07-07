@@ -105,9 +105,3 @@ resource "vcd_nsxv_firewall_rule" "fw_remote_access" {
 
   depends_on = [vcd_nsxv_dnat.dnat_1]
 }
-
-# temporary outputs
-output "cloudinitfilecontents" {
-  value = templatefile("${path.module}/cloud-config.yaml", { hostname = var.vm_name, localadmin = var.vm_localadmin_username, sshauthorizedkey = var.vm_ssh_authorized_key, remotesshauthorizedkey = var.vm_remote_node_authorized_key })
-  sensitive = true
-}

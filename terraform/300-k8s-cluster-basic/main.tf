@@ -66,10 +66,3 @@ module "nodes" {
   vm_network_name         = var.nodes_network_name
   vm_ip_allocation_mode   = var.nodes_ip_alloc_mode
 }
-
-
-# temporary outputs
-output "cloudinitfilecontents" {
-  value = module.bastion.cloudinitfilecontents
-  sensitive = true
-}
