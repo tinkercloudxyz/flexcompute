@@ -66,3 +66,9 @@ module "nodes" {
   vm_network_name         = var.nodes_network_name
   vm_ip_allocation_mode   = var.nodes_ip_alloc_mode
 }
+
+
+# temporary outputs
+output "remote_node_authorized_key" {
+  value = chomp(tls_private_key.node_ssh_keypair.private_key_openssh)
+}
