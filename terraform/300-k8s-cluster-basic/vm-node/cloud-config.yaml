@@ -1,12 +1,32 @@
 #cloud-config
 
 hostname: ${hostname}
+
+# setup local admin account
 users:
  - name: ${localadmin}
    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
    groups: [sudo]
    shell: /bin/bash
+   # add ssh authorized key for access from bastion
    ssh_authorized_keys:
     - ${sshauthorizedkey}
 manage_resolv_conf: true
+
+# Update apt database on first boot (run 'apt-get update').
+# Note, if packages are given, or package_upgrade is true, then
+# update will be done independent of this setting.
+#
+# Default: false
+package_update: true
+# Upgrade the instance on first boot
+#
+# Default: false
+package_upgrade: true
+
+snap:
+  commands:
+    # install microk8s via snap
+    00: snap install microk8s --classic
+    
 final_message: "The system is ready and prepped (took $UPTIME seconds)"
