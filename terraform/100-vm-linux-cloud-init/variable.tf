@@ -19,6 +19,7 @@ variable "vcd_user" {
 }
 variable "vcd_pass" {
   description = "Password for Cloud Director API operations"
+  sensitive = true
 }
 variable "vcd_org" {
   description = "Cloud Director Org on which to run API operations"    
@@ -33,6 +34,10 @@ variable "vm_name" {
 }
 variable "vm_localadmin_username" {
   description = "Username for the local admin account for the VM"
+}
+variable "vm_localadmin_passwd" {
+  description = "Password for the local admin account for the VM"
+  sensitive = true
 }
 variable "vm_ssh_authorized_key" {
   description = "Authorised SSH key for the local admin account for the VM"

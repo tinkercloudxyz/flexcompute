@@ -8,5 +8,11 @@ users:
    shell: /bin/bash
    ssh_authorized_keys:
     - ${sshauthorizedkey}
+chpasswd:
+  expire: false
+  users:
+    - name: ${localadmin}
+      password: ${localpass}
+      type: text
 manage_resolv_conf: true
 final_message: "The system is ready and prepped (took $UPTIME seconds)"

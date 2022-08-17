@@ -22,7 +22,7 @@ vcd_vdc = "tinkvdc"
 
 vm_name = "tinkvm1"
 vm_localadmin_username = "ubuntu"
-vm_vm_localadmin_passwd = "********"
+vm_localadmin_passwd = "********"
 vm_ssh_authorized_key = "sha-rsa ***********************************"
 template_catalog = "tinker-catalog"
 vm_template = "tink-ubuntu-20"
