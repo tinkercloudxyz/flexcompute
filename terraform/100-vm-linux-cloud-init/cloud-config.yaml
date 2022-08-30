@@ -9,10 +9,8 @@ users:
    ssh_authorized_keys:
     - ${sshauthorizedkey}
 chpasswd:
-  expire: false
-  users:
-    - name: ${localadmin}
-      password: ${localpass}
-      type: text
+  list: |
+    ${localadmin}:${localpass}
+  expire: False
 manage_resolv_conf: true
 final_message: "The system is ready and prepped (took $UPTIME seconds)"
